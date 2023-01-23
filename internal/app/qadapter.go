@@ -30,19 +30,6 @@ func (q *QueueAdapter) Connect() error {
 		return err
 	}
 	q.convQueueChan = channelRabbitMQ
-
-	_, err = channelRabbitMQ.QueueDeclare(
-		q.cfg.AMPQServerConfig.ConvQueueName,
-		true,
-		false,
-		false,
-		false,
-		nil,
-	)
-	if err != nil {
-		return err
-	}
-
 	return nil
 }
 

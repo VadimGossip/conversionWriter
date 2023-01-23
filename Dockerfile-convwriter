@@ -1,0 +1,12 @@
+FROM golang:latest
+
+ENV GOPATH=/
+
+COPY ./ ./
+
+RUN apt-get update
+
+# build go app
+RUN go build -o convwriter ./cmd/main.go
+
+CMD ["./convwriter"]

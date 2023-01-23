@@ -7,10 +7,10 @@ import (
 )
 
 func setFromEnv(cfg *domain.Config) error {
-	if err := envconfig.Process("api_http", &cfg.ApiHttpServer); err != nil {
+	if err := envconfig.Process("writer_http", &cfg.WriterHttpServer); err != nil {
 		return err
 	}
-	if err := envconfig.Process("api_metrics_http", &cfg.ApiMetricsHttpServer); err != nil {
+	if err := envconfig.Process("writer_metrics_http", &cfg.WriterMetricsHttpServer); err != nil {
 		return err
 	}
 	if err := envconfig.Process("ampq_server", &cfg.AMPQServerConfig); err != nil {

@@ -10,7 +10,7 @@ type AMPQServerConfig struct {
 }
 
 type Config struct {
-	ApiHttpServer        NetServerConfig
-	ApiMetricsHttpServer NetServerConfig
-	AMPQServerConfig     AMPQServerConfig
+	WriterHttpServer        NetServerConfig
+	WriterMetricsHttpServer NetServerConfig
+	AMPQServerConfig        AMPQServerConfig
 }
