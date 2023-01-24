@@ -22,7 +22,7 @@ func NewConsumer(convQueueName string, convQueueChan *amqp.Channel) *consumer {
 
 func (c *consumer) Run() error {
 	conversions, err := c.convQueueChan.Consume(
-		c.convQueueName,
+		"ConvWorkQueue",
 		"",
 		false,
 		false,
@@ -37,8 +37,8 @@ func (c *consumer) Run() error {
 	var forever chan struct{}
 	go func() {
 		for c := range conversions {
-			fmt.Printf("received %s\n", c.Body)
-			c.Ack(false)
+			fmt.Printf("received %s %v+\n", c.Body, c.Headers)
+			c.Nack(false, false)
 		}
 	}()
 	<-forever

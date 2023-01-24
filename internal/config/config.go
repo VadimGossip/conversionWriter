@@ -28,6 +28,7 @@ func Init() (*domain.Config, error) {
 	}
 	//temp
 	cfg.AMPQServerConfig.ConvQueueName = "ConversionQueue"
+	cfg.AMPQServerConfig.Url = "amqp://guest:guest@localhost:5672/"
 
 	logrus.Infof("Config %v", cfg)
 	return &cfg, nil
